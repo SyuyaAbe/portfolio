@@ -498,16 +498,23 @@ a:hover {
 }
 
 /* ===========================
-   Outputs Section (横並び設定)
+   Outputs Section (レイアウト修正)
    =========================== */
 
-/* 216行目付近：クラス名を HTML の 'Outputs-list' に合わせる */
 .Outputs-list {
     display: grid;
-    /* 1列あたり最小300px。空きスペースに合わせて3列〜1列に自動調整 */
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    /* auto-fit ではなく 3列固定(1fr 1fr 1fr) に設定 */
+    grid-template-columns: repeat(3, 1fr); 
     gap: 2rem;
     margin-top: 2rem;
+    align-items: stretch; /* 高さを自動で揃える */
+}
+
+/* モバイル対応：画面幅が 992px 以下の時は 1列にする（お好みで 768px などに調整可） */
+@media (max-width: 992px) {
+    .Outputs-list {
+        grid-template-columns: 1fr;
+    }
 }
 
 .publication-item {
@@ -516,28 +523,9 @@ a:hover {
     border-radius: 12px;
     border-left: 4px solid var(--secondary);
     transition: all 0.3s ease;
-    /* 高さを揃えるための設定 */
     display: flex;
     flex-direction: column;
     height: 100%;
-}
-
-.publication-item:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-}
-
-.publication-item h4 {
-    color: var(--primary);
-    margin-bottom: 0.5rem;
-}
-
-/* リンクを縦に並べたい場合の調整 */
-.publication-item a {
-    font-weight: 600;
-    display: inline-block;
-    margin-top: 0.5rem;
-    transition: all 0.3s ease;
 }
 
 /* ===========================
