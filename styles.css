@@ -498,17 +498,16 @@ a:hover {
 }
 
 /* ===========================
-   Publications Section
+   Outputs Section (横並び設定)
    =========================== */
 
-.publications {
-    background-color: white;
-}
-
-.publications-list {
+/* 216行目付近：クラス名を HTML の 'Outputs-list' に合わせる */
+.Outputs-list {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    /* 1列あたり最小300px。空きスペースに合わせて3列〜1列に自動調整 */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
     gap: 2rem;
+    margin-top: 2rem;
 }
 
 .publication-item {
@@ -517,6 +516,10 @@ a:hover {
     border-radius: 12px;
     border-left: 4px solid var(--secondary);
     transition: all 0.3s ease;
+    /* 高さを揃えるための設定 */
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .publication-item:hover {
@@ -529,21 +532,12 @@ a:hover {
     margin-bottom: 0.5rem;
 }
 
-.publication-meta {
-    color: var(--secondary);
-    font-size: 0.85rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
-}
-
+/* リンクを縦に並べたい場合の調整 */
 .publication-item a {
     font-weight: 600;
     display: inline-block;
+    margin-top: 0.5rem;
     transition: all 0.3s ease;
-}
-
-.publication-item a:hover {
-    transform: translateX(4px);
 }
 
 /* ===========================
