@@ -501,7 +501,7 @@ a:hover {
    Outputs Section (レイアウト修正)
    =========================== */
 
-.Outputs-list {
+.outputs-list {
     display: grid;
     /* auto-fit ではなく 3列固定(1fr 1fr 1fr) に設定 */
     grid-template-columns: repeat(3, 1fr); 
@@ -512,7 +512,7 @@ a:hover {
 
 /* モバイル対応：画面幅が 992px 以下の時は 1列にする（お好みで 768px などに調整可） */
 @media (max-width: 992px) {
-    .Outputs-list {
+    .outputs-list {
         grid-template-columns: 1fr;
     }
 }
